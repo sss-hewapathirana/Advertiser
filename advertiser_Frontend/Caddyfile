@@ -1,0 +1,16 @@
+:3000
+
+# Serve static files with SPA fallback
+file_server {
+	root /app/dist
+	try_files {path} /index.html
+}
+
+# Proxy API requests to backend
+@api {
+	path /auth/* /users/* /ads/* /images/* /videos/* /files/* /inquiries/* /conversations/* /health
+}
+
+reverse_proxy @api {$BACKEND_URL:http://Advertiser.railway.internal:8080} {
+	header_up Host {upstream_hostport}
+}
