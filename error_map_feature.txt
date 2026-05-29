@@ -1,0 +1,24 @@
+Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+2leaflet.js?v=289f92d1:1114 Uncaught TypeError: Cannot read properties of undefined (reading '_leaflet_pos')
+    at getPosition (leaflet.js?v=289f92d1:1114:14)
+    at NewClass._getMapPanePos (leaflet.js?v=289f92d1:2043:12)
+    at NewClass._getNewPixelOrigin (leaflet.js?v=289f92d1:2054:69)
+    at NewClass._move (leaflet.js?v=289f92d1:1914:30)
+    at NewClass._onZoomTransitionEnd (leaflet.js?v=289f92d1:2169:10)
+getPosition @ leaflet.js?v=289f92d1:1114
+_getMapPanePos @ leaflet.js?v=289f92d1:2043
+_getNewPixelOrigin @ leaflet.js?v=289f92d1:2054
+_move @ leaflet.js?v=289f92d1:1914
+_onZoomTransitionEnd @ leaflet.js?v=289f92d1:2169
+setTimeout
+_animateZoom @ leaflet.js?v=289f92d1:2163
+(anonymous) @ leaflet.js?v=289f92d1:2144
+requestAnimationFrame
+requestAnimFrame @ leaflet.js?v=289f92d1:119
+_tryAnimatedZoom @ leaflet.js?v=289f92d1:2143
+setView @ leaflet.js?v=289f92d1:1453
+setZoomAround @ leaflet.js?v=289f92d1:1478
+_performZoom @ leaflet.js?v=289f92d1:6526
+setTimeout
+_onWheelScroll @ leaflet.js?v=289f92d1:6515
+handler @ leaflet.js?v=289f92d1:1258Understand this error
