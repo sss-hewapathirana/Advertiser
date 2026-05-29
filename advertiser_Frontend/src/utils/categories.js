@@ -1,0 +1,16 @@
+export const CATEGORIES = [
+  'Real Estate',
+  'Vehicles',
+  'Electronics',
+  'Jobs',
+  'Services',
+  'Furniture & Home',
+  'Fashion & Beauty',
+  'Books & Media',
+  'Sports & Outdoors',
+  'Pets & Animals',
+  'Food & Agriculture',
+  'Business & Industrial',
+  'Education & Classes',
+  'Other',
+]
