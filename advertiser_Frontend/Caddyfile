@@ -1,0 +1,17 @@
+:3000
+
+# Serve static files
+file_server {
+  root /app/dist
+  try_files {path} /index.html
+}
+
+# Proxy API requests to backend
+@api {
+  path /auth/* /users/* /ads/* /images/* /videos/* /files/* /inquiries/* /conversations/* /health
+}
+
+reverse_proxy @api {env.BACKEND_URL} {
+  header_up Host {upstream_hostport}
+}
+
