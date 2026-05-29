@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: advertiser_db
+      POSTGRES_USER: advertiser_user
+      POSTGRES_PASSWORD: advertiser_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U advertiser_user -d advertiser_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: ./advertiser_backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/advertiser_db?sslmode=disable
+      DATABASE_USERNAME: advertiser_user
+      DATABASE_PASSWORD: advertiser_pass
+      JWT_SECRET: MySuperSecretKeyForHS256AlgorithmThatIsAtLeast32Chars!!
+      SPRING_PROFILES_ACTIVE: prod
+    volumes:
+      - app_uploads:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  app_uploads:
